@@ -2,6 +2,10 @@
 
 Mostra a bateria do **HORIPAD Steam** direto na barra de tarefas do Windows 11, ao lado da área de notificação.
 
+![Widget na barra de tarefas: ícone de controle com 80%](docs/widget.png)
+
+*À esquerda, o widget; ao lado, o fone de outro monitor de bateria.*
+
 ## Por quê
 
 O controle não informa a bateria pelo Bluetooth padrão do Windows: a propriedade de bateria do dispositivo fica vazia. Por isso ela não aparece em Configurações nem em apps como o BatteryHub. O Steam lê a bateria pelo driver HIDAPI do [SDL](https://github.com/libsdl-org/SDL), e este script faz a mesma coisa com o SDL3.
