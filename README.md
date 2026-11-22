@@ -43,4 +43,4 @@ Para remover, apague `Horipad Battery.lnk` em `shell:startup`.
 ## Limitações
 
 - Testado só com o HORIPAD Steam via Bluetooth (VID `0F0D`). Outros controles suportados pelo SDL devem funcionar se você trocar `NAME_MATCH`.
-- A posição é recalculada a cada 2 s. Ainda não foi testado o que acontece quando o Explorer reinicia; se o widget sumir, rode o script de novo.
+- A posição é recalculada a cada 2 s. Se o Explorer reiniciar, a janela some junto com a barra antiga e o script se reabre sozinho quando a nova barra aparece.

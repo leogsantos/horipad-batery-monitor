@@ -5,6 +5,9 @@ da área de notificação (e de outros widgets que já estejam lá).
 """
 import ctypes
 import ctypes.wintypes as w
+import os
+import subprocess
+import sys
 import tkinter as tk
 
 import sdl3
@@ -85,6 +88,14 @@ class Widget:
         self.pump()
 
     def place(self):
+        if self.parent and not u32.IsWindow(self.hwnd):
+            # Explorer reiniciou e destruiu a janela junto com a barra antiga:
+            # quando a nova barra existir, reabre o script do zero.
+            if u32.FindWindowW("Shell_TrayWnd", None):
+                subprocess.Popen([sys.executable, *sys.argv])
+                os._exit(0)
+            self.root.after(PLACE_MS, self.place)
+            return
         a = taskbar_anchor(self.hwnd)
         if a:
             tb, right, tbr = a
